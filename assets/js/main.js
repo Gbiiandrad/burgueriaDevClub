@@ -2,6 +2,7 @@ const list = document.querySelector("ul");
 const buttonShowAll = document.querySelector(".show-all");
 const buttonMapAll = document.querySelector(".map-all");
 const buttonSumAll = document.querySelector(".sum-all");
+const buttonFilterAll = document.querySelector(".filter-all");
 
 function showAll(productsArray) {
   // para zerar a Li sempre q for chamado
@@ -40,10 +41,18 @@ function sumAllItems() {
             <p> O valor total dos itens é R$ ${totalValue}</p>
         </li>
         `;
-  console.log(totalValue);
+
+}
+
+
+function filterAllItems() {
+  const filterJustVegan = menuOptions.filter((product) => product.vegan === true);
+
+  showAll(filterJustVegan);
 }
 
 // () => para so colocar a função quando é chamado.
 buttonShowAll.addEventListener("click", () => showAll(menuOptions));
 buttonMapAll.addEventListener("click", mapAllItems);
 buttonSumAll.addEventListener("click", sumAllItems);
+buttonFilterAll.addEventListener("click", filterAllItems);
